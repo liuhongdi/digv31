@@ -30,6 +30,7 @@ func (r *Result) Success(data interface{}) {
 	res.Msg = ""
 	res.Data = data
 	r.Ctx.JSON(http.StatusOK,res)
+	r.Ctx.Abort()
 }
 
 //出错
@@ -39,4 +40,5 @@ func (r *Result)Error(code int,msg string) {
 	res.Msg = msg
 	res.Data = gin.H{}
 	r.Ctx.JSON(http.StatusOK,res)
+	r.Ctx.Abort()
 }

@@ -2,7 +2,7 @@ package global
 
 import (
 	"fmt"
-	"github.com/liuhongdi/digv07/pkg/setting"
+	"github.com/liuhongdi/digv31/pkg/setting"
 	"time"
 )
 //服务器配置
@@ -38,12 +38,18 @@ type AccessLogSettingS struct {
 	LogFileName string  //Access日志文件的名字
 	LogFileExt      string    //文件的扩展名
 }
+//redis配置
+type RedisSettingS struct {
+	Addr      string
+	Password     string
+}
 //定义全局变量
 var (
 	ServerSetting   *ServerSettingS
 	DatabaseSetting *DatabaseSettingS
 	LogSetting *LogSettingS
 	AccessLogSetting *AccessLogSettingS
+	RedisSetting   *RedisSettingS
 )
 
 //读取配置到全局变量
@@ -68,6 +74,11 @@ func SetupSetting() error {
 	}
 
 	err = s.ReadSection("AccessLog", &AccessLogSetting)
+	if err != nil {
+		return err
+	}
+
+	err = s.ReadSection("Redis", &RedisSetting)
 	if err != nil {
 		return err
 	}

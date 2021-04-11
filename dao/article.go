@@ -2,8 +2,8 @@ package dao
 
 import (
 	"fmt"
-	"github.com/liuhongdi/digv07/global"
-	"github.com/liuhongdi/digv07/model"
+	"github.com/liuhongdi/digv31/global"
+	"github.com/liuhongdi/digv31/model"
 )
 //select一条记录
 func SelectOneArticle(articleId uint64) (*model.Article, error) {

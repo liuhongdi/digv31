@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67cc34df-7ee5-4fa6-a655-514b9f1ec6b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/digv06.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/articleController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/articleController.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/userController.go" beforeDir="false" afterPath="$PROJECT_DIR$/controller/userController.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dao/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/article.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/dao/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/accessLog.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/accessLog.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/logger.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/global/setting.go" beforeDir="false" afterPath="$PROJECT_DIR$/global/setting.go" afterDir="false" />
@@ -12,8 +17,13 @@
       <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/middleware/accesslog.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/accesslog.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/middleware/jwtauth.go" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/jwtauth.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/jwt/jwt.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/jwt/jwt.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/result/result.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/result/result.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/article.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/article.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/service/user.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +60,11 @@
   </component>
   <component name="RunManager">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="digv06" />
+      <module name="digv31" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/main.go" />
-      <package value="github.com/liuhongdi/digv06" />
+      <package value="github.com/liuhongdi/digv31" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -72,29 +82,21 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="515" y="251" width="402" height="336" key="#Go_Modules" timestamp="1606373320652">
-      <screen x="0" y="0" width="1440" height="830" />
+    <state width="1386" height="128" key="GridCell.Tab.0.bottom" timestamp="1618142455848">
+      <screen x="0" y="0" width="1440" height="837" />
     </state>
-    <state x="515" y="251" width="402" height="336" key="#Go_Modules/0.0.1440.830@0.0.1440.830" timestamp="1606373320652" />
-    <state width="1386" height="339" key="GridCell.Tab.0.bottom" timestamp="1608091977612">
-      <screen x="0" y="0" width="1440" height="854" />
+    <state width="1386" height="128" key="GridCell.Tab.0.bottom/0.0.1440.837@0.0.1440.837" timestamp="1618142455848" />
+    <state width="1386" height="128" key="GridCell.Tab.0.center" timestamp="1618142455848">
+      <screen x="0" y="0" width="1440" height="837" />
     </state>
-    <state width="1386" height="90" key="GridCell.Tab.0.bottom/0.0.1440.830@0.0.1440.830" timestamp="1606637151170" />
-    <state width="1386" height="339" key="GridCell.Tab.0.bottom/0.0.1440.854@0.0.1440.854" timestamp="1608091977612" />
-    <state width="1386" height="339" key="GridCell.Tab.0.center" timestamp="1608091977611">
-      <screen x="0" y="0" width="1440" height="854" />
+    <state width="1386" height="128" key="GridCell.Tab.0.center/0.0.1440.837@0.0.1440.837" timestamp="1618142455848" />
+    <state width="1386" height="128" key="GridCell.Tab.0.left" timestamp="1618142455847">
+      <screen x="0" y="0" width="1440" height="837" />
     </state>
-    <state width="1386" height="90" key="GridCell.Tab.0.center/0.0.1440.830@0.0.1440.830" timestamp="1606637151168" />
-    <state width="1386" height="339" key="GridCell.Tab.0.center/0.0.1440.854@0.0.1440.854" timestamp="1608091977611" />
-    <state width="1386" height="339" key="GridCell.Tab.0.left" timestamp="1608091977610">
-      <screen x="0" y="0" width="1440" height="854" />
+    <state width="1386" height="128" key="GridCell.Tab.0.left/0.0.1440.837@0.0.1440.837" timestamp="1618142455847" />
+    <state width="1386" height="128" key="GridCell.Tab.0.right" timestamp="1618142455848">
+      <screen x="0" y="0" width="1440" height="837" />
     </state>
-    <state width="1386" height="90" key="GridCell.Tab.0.left/0.0.1440.830@0.0.1440.830" timestamp="1606637151167" />
-    <state width="1386" height="339" key="GridCell.Tab.0.left/0.0.1440.854@0.0.1440.854" timestamp="1608091977610" />
-    <state width="1386" height="339" key="GridCell.Tab.0.right" timestamp="1608091977611">
-      <screen x="0" y="0" width="1440" height="854" />
-    </state>
-    <state width="1386" height="90" key="GridCell.Tab.0.right/0.0.1440.830@0.0.1440.830" timestamp="1606637151169" />
-    <state width="1386" height="339" key="GridCell.Tab.0.right/0.0.1440.854@0.0.1440.854" timestamp="1608091977611" />
+    <state width="1386" height="128" key="GridCell.Tab.0.right/0.0.1440.837@0.0.1440.837" timestamp="1618142455848" />
   </component>
 </project>

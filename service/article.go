@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/liuhongdi/digv07/dao"
-	"github.com/liuhongdi/digv07/model"
+	"github.com/liuhongdi/digv31/dao"
+	"github.com/liuhongdi/digv31/model"
 )
 //得到一篇文章的详情
 func GetOneArticle(articleId uint64) (*model.Article, error) {

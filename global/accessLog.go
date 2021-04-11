@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/liuhongdi/digv07/pkg/zaplog"
+	"github.com/liuhongdi/digv31/pkg/zaplog"
 	"go.uber.org/zap"
 )
 

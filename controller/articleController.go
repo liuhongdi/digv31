@@ -3,11 +3,11 @@ package controller
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/liuhongdi/digv07/pkg/page"
-	"github.com/liuhongdi/digv07/pkg/result"
-	"github.com/liuhongdi/digv07/pkg/validCheck"
-	"github.com/liuhongdi/digv07/request"
-	"github.com/liuhongdi/digv07/service"
+	"github.com/liuhongdi/digv31/pkg/page"
+	"github.com/liuhongdi/digv31/pkg/result"
+	"github.com/liuhongdi/digv31/pkg/validCheck"
+	"github.com/liuhongdi/digv31/request"
+	"github.com/liuhongdi/digv31/service"
 )
 
 type ArticleController struct{}

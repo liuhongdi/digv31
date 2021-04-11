@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/liuhongdi/digv07/global"
-	"github.com/liuhongdi/digv07/router"
+	"github.com/liuhongdi/digv31/global"
+	"github.com/liuhongdi/digv31/router"
 	"log"
 )
 
@@ -34,7 +34,11 @@ func init() {
 		log.Fatalf("init.SetupLogger err: %v", err)
 		global.Logger.Fatalf("init.setupDBEngine err: %v", err)
 	}
-
+    //redisDb
+	err = global.SetupRedisDb()
+	if err != nil {
+		log.Fatalf("init.SetupRedisDb err: %v", err)
+	}
 	global.Logger.Infof("------应用init结束")
 	//global.Logger.
 }

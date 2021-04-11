@@ -2,10 +2,10 @@ package middleware
 
 import (
 	"bytes"
-	"github.com/liuhongdi/digv07/global"
-	"github.com/liuhongdi/digv07/pkg/util"
-	"time"
 	"github.com/gin-gonic/gin"
+	"github.com/liuhongdi/digv31/global"
+	"github.com/liuhongdi/digv31/pkg/util"
+	"time"
 )
 
 type AccessLogWriter struct {

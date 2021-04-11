@@ -3,8 +3,8 @@ package middleware
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/liuhongdi/digv07/pkg/jwt"
-	"github.com/liuhongdi/digv07/pkg/result"
+	"github.com/liuhongdi/digv31/pkg/jwt"
+	"github.com/liuhongdi/digv31/pkg/result"
 	"strings"
 )
 
@@ -42,9 +42,9 @@ func JWTAuthMiddleware() func(c *gin.Context) {
 			return
 		}
 		fmt.Println("mc:")
-		fmt.Println(mc.Username)
+		fmt.Println(mc.UserToken)
 		// 将当前请求的username信息保存到请求的上下文c上
-		c.Set("username", mc.Username)
+		c.Set("usertoken", mc.UserToken)
 		c.Next()
 		// 后续的处理函数可以用过c.Get("username")来获取当前请求的用户信息
 	}

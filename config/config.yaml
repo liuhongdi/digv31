@@ -22,3 +22,6 @@ AccessLog:
   LogFilePath: /data/gologs/logs
   LogFileName: access
   LogFileExt: log
+Redis:
+  Addr: 127.0.0.1:6379
+  Password:

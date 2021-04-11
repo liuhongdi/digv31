@@ -3,11 +3,12 @@ package controller
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/liuhongdi/digv07/pkg/jwt"
-	"github.com/liuhongdi/digv07/pkg/result"
-	"github.com/liuhongdi/digv07/pkg/validCheck"
-	"github.com/liuhongdi/digv07/request"
-	"github.com/liuhongdi/digv07/service"
+	"github.com/liuhongdi/digv31/cache"
+	"github.com/liuhongdi/digv31/pkg/jwt"
+	"github.com/liuhongdi/digv31/pkg/result"
+	"github.com/liuhongdi/digv31/pkg/validCheck"
+	"github.com/liuhongdi/digv31/request"
+	"github.com/liuhongdi/digv31/service"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -41,11 +42,13 @@ func (u *UserController) Login(c *gin.Context) {
 			result.Error(1001,"账号信息错误")
 			//return false
 		}else {
-			//生成token并返回
-			fmt.Println("begin gentoken:")
-			fmt.Println(param.UserName)
-
-			tokenString, _ := jwt.GenToken(param.UserName)
+			//得到用户信息
+			//用username生成origintoken
+			originToken := jwt.GetOriginToken(param.UserName);
+            //保存到cache
+            cache.SetOneUserCache(originToken,userOne)
+			//返回
+			tokenString, _ := jwt.GenToken(originToken)
 
 			m := map[string]string {
 				"tokenString":tokenString,
@@ -59,15 +62,29 @@ func (u *UserController) Login(c *gin.Context) {
 
 //用户信息info
 func (u *UserController) Info(c *gin.Context) {
-	username := c.MustGet("username").(string)
+	originToken := c.MustGet("usertoken").(string)
 	fmt.Println("user login begin")
 	result := result.NewResult(c)
-
-	m := map[string]string {
-		"username":username,
+	userOne,err := cache.GetOneUserCache(originToken)
+    if (err != nil) {
+		result.Error(1,"需要登录")
+	}else {
+		result.Success(userOne)
 	}
-	result.Success(m)
+	return
+}
 
+//注销
+func (u *UserController) Logout(c *gin.Context) {
+	originToken := c.MustGet("usertoken").(string)
+	fmt.Println("user login begin")
+	result := result.NewResult(c)
+	err := cache.DelOneUserCache(originToken)
+	if (err != nil) {
+		result.Error(1,err.Error())
+	}else {
+		result.Success("成功退出")
+	}
 	return
 }
 
@@ -80,27 +97,10 @@ func (u *UserController) Pass(c *gin.Context) {
 	result := result.NewResult(c)
 
 	hashPwd, _ := bcrypt.GenerateFromPassword([]byte(origpassword), bcrypt.DefaultCost)
-
-	/*
-	//compare
-	err := bcrypt.CompareHashAndPassword(hashPwd, []byte("124"))
-	parse:=""
-	if (err == nil) {
-		parse="true"
-	} else {
-		parse = "false"
-	}
-	// 没有错误则密码匹配
-	if err != nil {
-		log.Println(err)
-	}
-    */
 	m := map[string]string {
 		"origpassword":origpassword,
 		"password":string(hashPwd),
-		//"parse":parse,
 	}
 	result.Success(m)
-
 	return
 }

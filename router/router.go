@@ -2,10 +2,10 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/liuhongdi/digv07/controller"
-	"github.com/liuhongdi/digv07/global"
-	"github.com/liuhongdi/digv07/middleware"
-	"github.com/liuhongdi/digv07/pkg/result"
+	"github.com/liuhongdi/digv31/controller"
+	"github.com/liuhongdi/digv31/global"
+	"github.com/liuhongdi/digv31/middleware"
+	"github.com/liuhongdi/digv31/pkg/result"
 	"runtime/debug"
 )
 
@@ -24,6 +24,7 @@ func Router() *gin.Engine {
 	userc:=controller.NewUserController()
 	router.GET("/user/login", userc.Login);
 	router.GET("/user/info",middleware.JWTAuthMiddleware(), userc.Info);
+	router.GET("/user/logout",middleware.JWTAuthMiddleware(), userc.Logout);
 	router.GET("/user/pass", userc.Pass);
 	return router
 }
